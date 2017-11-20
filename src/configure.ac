@@ -1878,7 +1878,7 @@ if test "$enable_rubyinterp" = "yes" -o "$enable_rubyinterp" = "dynamic"; then
 	if test -f "$rubylibdir/$librubya"; then
 	  librubyarg="$librubyarg"
 	  RUBY_LIBS="$RUBY_LIBS -L$rubylibdir"
-	elif test "$librubyarg" = "libruby.a"; then
+	elif test "X`echo \"$librubya\" | $GREP -e \"libruby.*\\.a\"`" != "X"; then
 	  dnl required on Mac OS 10.3 where libruby.a doesn't exist
 	  librubyarg="-lruby"
 	  RUBY_LIBS="$RUBY_LIBS -L$rubylibdir"
